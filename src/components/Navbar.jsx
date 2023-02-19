@@ -29,7 +29,7 @@ function Navbar() {
       <nav className="navbar">
         <div className="navbar-container">
           <Link
-            to="/"
+            to="react-website"
             className="navbar-logo"
             onClick={closeMobileMenu}
           >
@@ -40,13 +40,13 @@ function Navbar() {
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="react-website" className="nav-links" onClick={closeMobileMenu}>
                 Home
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                to="/services"
+                to="services"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
@@ -55,7 +55,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link
-                to="/products"
+                to="products"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
@@ -65,7 +65,7 @@ function Navbar() {
 
             <li>
               <Link
-                to="/sign-up"
+                to="sign-up"
                 className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >
