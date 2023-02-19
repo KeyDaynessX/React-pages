@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import React from 'react'
+import Navbar from './components/Navbar';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Pages/Home';
+import Services from './components/Pages/Services';
+import Products from './components/Pages/Products';
+import SignUp from './components/Pages/SignUp';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  fetch('https://example.com/api/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+  return <>
+  <Routes>
+    <Route path='/' element={<Navbar/>}>
+    <Route index element={<Home/>} />
+    <Route path='services' element={<Services/>} />
+    <Route path='products' element={<Products/>} />
+    <Route path='sign-up' element={<SignUp/>} />
+    </Route>
+  </Routes>
+  </>
 }
-
 export default App;
